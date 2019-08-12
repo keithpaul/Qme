@@ -17,10 +17,10 @@ let AnimatedTH = new Animated.createAnimatedComponent(TouchableHighlight);
 export default class AddCardButton extends React.Component {
 	constructor() {
 		super();
-		this.state = { plusDisplay: "block" };
+		this.state = { showingPlusIcon:true };
 	}
 	changeDisplay = () => {
-		this.setState({ plusDisplay: "none" });
+		this.setState({ showingPlusIcon: false });
 	}
 	addButtonPressed = () => {
 		Animated.timing(buttonAnim, { toValue: 1, duration: 500 }).start();
@@ -29,7 +29,7 @@ export default class AddCardButton extends React.Component {
 	render() {
 		return (
 			<AnimatedTH underlayColor="#FFFF00" style={addButtonStyle} onPress={this.addButtonPressed}>
-				<Feather color="#FFF" size={28} name="plus" style={{ display: this.state.plusDisplay }} />
+				{this.state.showingPlusIcon ? <Feather color="#FFF" size={28} name="plus" /> : null }
 			</AnimatedTH>
 		);
 	}
