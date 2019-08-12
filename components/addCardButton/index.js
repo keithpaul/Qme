@@ -46,11 +46,11 @@ const addButtonStyle = {
 	height: buttonHeight,
 	alignItems: 'center',
 	justifyContent: 'center',
-	shadowColor: '#000',
-	shadowOffset: { width: 0, height: 2 },
-	shadowOpacity: 0.8,
-	shadowRadius: 2,
-	elevation: 1,
+	shadowColor: '#ff0000',
+	shadowOffset: { width: 50, height: 50 },
+	shadowOpacity: 1,
+	shadowRadius: 12,
+	elevation: 12,
 }
 
 
