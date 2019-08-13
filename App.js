@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
-import AddCardButton from './components/addCardButton';
+import AddCardButton from './app/components/addCardButton';
 
 export default class App extends React.Component {
 	constructor() {
