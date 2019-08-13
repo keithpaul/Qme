@@ -6,7 +6,7 @@ export default class CreateCardScreen extends React.Component {
 
 	render() {
 		return (
-            <View style={container}>
+            <View style={{flex:1, backgroundColor:"#231F40"}}>
                 <Text>Create Card Page</Text>
             </View>
 			

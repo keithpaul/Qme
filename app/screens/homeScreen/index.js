@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, } from 'react-native';
+import { Text, View, TouchableHighlight} from 'react-native';
 import AddCardButton from './../../components/addCardButton';
 
 export default class HomeScreen extends React.Component {
@@ -7,14 +7,14 @@ export default class HomeScreen extends React.Component {
     constructor() {
 		super();
 		this.state = { title: "Keith is the man", time: "NOW" }
-	}
-
+    }
+    
 	render() {
 		return (
             <View style={container}>
-                <Text>{this.state.title}</Text>
+                <Text style={{fontSize:30}}>{this.state.title}</Text>
                 <Text>{this.state.time}</Text>
-                <AddCardButton />
+                <AddCardButton navigation={this.props.navigation} />
             </View>
 			
 		);

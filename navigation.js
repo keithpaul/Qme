@@ -14,7 +14,10 @@ let StackNav = createStackNavigator({
     Home : {screen : HomeScreen },
     CreateCard : {screen : CreateCardScreen},
 }, {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    transitionConfig: () => ({
+        transitionSpec: { duration: 0 },
+    })
 });
 
 let StackNavContainer = createAppContainer(StackNav);
