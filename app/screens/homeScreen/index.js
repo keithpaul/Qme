@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, View, } from 'react-native';
+import AddCardButton from './../../components/addCardButton';
 
 export default class HomeScreen extends React.Component {
-	constructor() {
+    static navigationOptions = {header: null}
+    constructor() {
 		super();
 		this.state = { title: "Keith is the man", time: "NOW" }
 	}
