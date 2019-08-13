@@ -10,7 +10,7 @@ let buttonAbsolutePosition = buttonAnim.interpolate({ inputRange: [0, 1], output
 let buttonHeight = buttonAnim.interpolate({ inputRange: [0, 1], outputRange: [50, winHeight] });
 let buttonWidth = buttonAnim.interpolate({ inputRange: [0, 1], outputRange: [50, winWidth] });
 let buttonBR = buttonAnim.interpolate({ inputRange: [0, 1], outputRange: [25, 0] });
-let buttonBC = buttonAnim.interpolate({ inputRange: [0, 1], outputRange: ["#8711EF", "#FFFF00"] });
+let buttonBC = buttonAnim.interpolate({ inputRange: [0, 1], outputRange: ["#8711EF", "#231F40"] });
 
 let AnimatedTH = new Animated.createAnimatedComponent(TouchableHighlight);
 
@@ -28,7 +28,7 @@ export default class AddCardButton extends React.Component {
 	}
 	render() {
 		return (
-			<AnimatedTH underlayColor="#FFFF00" style={addButtonStyle} onPress={this.addButtonPressed}>
+			<AnimatedTH underlayColor="#231F40" style={addButtonStyle} onPress={this.addButtonPressed}>
 				<Feather color="#FFF" size={28} name="plus" style={{opacity: this.state.plusOpacity}}/>
 			</AnimatedTH>
 		);
