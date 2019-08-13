@@ -1,6 +1,7 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import HomeScreen from './app/screens/homeScreen';
+import CreateCardScreen from './app/screens/createCardScreen';
 
 
 export default class Navigation extends React.Component {
@@ -11,8 +12,12 @@ export default class Navigation extends React.Component {
 
 let StackNav = createStackNavigator({
     Home : {screen : HomeScreen },
+    CreateCard : {screen : CreateCardScreen},
 }, {
-    header:null
+    initialRouteName: "Home",
+    transitionConfig: () => ({
+        transitionSpec: { duration: 0 },
+    })
 });
 
 let StackNavContainer = createAppContainer(StackNav);
