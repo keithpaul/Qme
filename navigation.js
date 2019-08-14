@@ -14,7 +14,7 @@ let StackNav = createStackNavigator({
     Home : {screen : HomeScreen },
     CreateCard : {screen : CreateCardScreen},
 }, {
-    initialRouteName: "Home",
+    initialRouteName: "CreateCard",
     transitionConfig: () => ({
         transitionSpec: { duration: 0 },
     })
