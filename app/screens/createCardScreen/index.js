@@ -21,19 +21,63 @@ export default class CreateCardScreen extends React.Component {
     }
 	render() {
 		return (
-            <View style={{flex:1, backgroundColor:"#231F40", justifyContent:"center", alignItems:'center'}}>
-                <Text style={{color:"#fff"}}>Create Card</Text>
-                <View style={{flexDirection:"row", width:"100%", position:"relative"}}>
-                    <TextInput multiline={true} numberOfLines={10} placeholder="Question..." style={{margin:10, flex:1, padding:5, borderWidth:1, borderColor:"#eee", borderRadius:4, color:"#fff"}} value={this.state.question} onChange={this.changeQuestion} />
+            <View style={{flex:1, backgroundColor:"#fefefe", justifyContent:"center", padding: 20, alignItems:"center"}}>
+                <Text style={{color:"#fff"}}>Create a new card</Text>
+                <View style={qCardStyle}>
+                    <Text style={{color: "#666", fontSize: 14}}>Question:</Text>
+                    <TextInput multiline={true} style={{color: "#999", fontSize: 16}} value={this.state.question} onChange={this.changeQuestion} />
                 </View>
-                <View style={{flexDirection:"row", width:"100%", position:"relative"}}>
-                    <TextInput multiline={true} numberOfLines={10} placeholder="Answer..." style={{margin:10, flex:1, padding:5, borderWidth:1, borderColor:"#eee", borderRadius:4, color:"#fff"}} value={this.state.answer} onChange={this.changeAnswer} />
+                <View style={aCardStyle}>
+                    <Text style={{color: "#666", fontSize: 14}}>Answer:</Text>
+                    <TextInput multiline={true} style={{color: "#999", fontSize: 16}} value={this.state.answer} onChange={this.changeAnswer} />
                 </View>
-                <TouchableHighlight onPress={this.save} style={{borderWidth:1, borderColor:"#fff", padding:10, marginTop:20}}>
-                    <Text style={{color:"#fff"}}>Save</Text>
+                <TouchableHighlight onPress={this.save} style={saveButtonStyle}>
+                    <Text style={{color:"#fff", fontSize: 16}}>Save</Text>
                 </TouchableHighlight>
             </View>
 			
 		);
 	}
+}
+
+let qCardStyle = {
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 4,
+    borderTopWidth: 3,
+    borderTopColor: "#ffffff",
+    width: "100%",
+    height: "20%", 
+    marginTop: "15%",
+    shadowColor: 'rgba(0,0,0,0.3)',
+	shadowOffset: { width: 3, height: 3 },
+	shadowOpacity: 1,
+	shadowRadius: 3,
+	elevation: 3,
+}
+
+let aCardStyle = {
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 4,
+    borderTopWidth: 3,
+    borderTopColor: "#9400D3",
+    width: "100%",
+    marginTop: 30,
+    height: "30%",
+    shadowColor: 'rgba(0,0,0,0.3)',
+	shadowOffset: { width: 3, height: 3 },
+	shadowOpacity: 1,
+	shadowRadius: 3,
+	elevation: 3,
+}
+
+let saveButtonStyle = {
+    backgroundColor: "#CC0000",
+    width: 150,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30
 }
