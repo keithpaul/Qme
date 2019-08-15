@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, TextInput, TouchableHighlight } from 'react-native';
+import { ADD_CARD } from '../../actions/addCard';
 
 export default class CreateCardScreen extends React.Component {
     static navigationOptions = {header: null}
@@ -16,8 +17,8 @@ export default class CreateCardScreen extends React.Component {
         this.setState({answer:val.nativeEvent.text});
     }
 
-    save = ()=> {
-        console.log(this.state);
+    save = () => {
+        ADD_CARD(this.state);
     }
 	render() {
 		return (
