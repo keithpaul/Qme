@@ -1,19 +1,17 @@
-import ADD_CARD from '../../actions/addCard';
-
-const initialState = {
-    cards: [{question: "Question 1", answer: "Answer 1"},{question: "Question 2", answer: "Answer 2"}]    
-}
 
 export default (state = [], action) => {
-    console.log(action.payload);
+    console.log(state)
     switch(action.type){        
         case "GET_CARDS":
             return action.payload;
         
-        case ADD_CARD:
-            return [...state, ...action.payload];
+        case "ADD_CARD":
+            console.log([...state, {...action.payload}]);
+            return [...state, {...action.payload}];
+            
 
         default:
-            return initialState;
+            return state;
     }
+    
 }
