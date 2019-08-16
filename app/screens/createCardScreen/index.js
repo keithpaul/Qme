@@ -9,10 +9,7 @@ class CreateCardScreen extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = { question:"", answer: ""};
-        const { dispatch } = this.props;
-        this.boundActionCreators = bindActionCreators(addCard, dispatch);
-        
+        this.state = { question:"", answer: ""};        
     }
 
     changeQuestion = (val)=> {
@@ -22,16 +19,14 @@ class CreateCardScreen extends React.Component {
         this.setState({answer:val.nativeEvent.text});
     }
 
-    save = () => {
-        let { dispatch } = this.props;
-        let action = addCard(this.state);
-        console.log(action);
-    dispatch(action)
+    save = () => { 
+        this.props.addCard(this.state);
     }
 	render() {
 		return (
             <View style={{flex:1, backgroundColor:"#fefefe", justifyContent:"center", padding: 20, alignItems:"center"}}>
-                <Text style={{color:"#fff"}}>Create a new card</Text>
+                <Text style={{color:"#000"}}>Create a new card</Text>
+                <Text style={{}}>You have {this.props.cards.length} cards</Text>
                 <View style={qCardStyle}>
                     <Text style={{color: "#666", fontSize: 14}}>Question:</Text>
                     <TextInput multiline={true} style={{color: "#999", fontSize: 16}} value={this.state.question} onChange={this.changeQuestion} />
@@ -49,7 +44,12 @@ class CreateCardScreen extends React.Component {
 	}
 }
 
-export default connect(state => ({ question: state.question, answer: state.answer }))(CreateCardScreen)
+// mapStateToProps is where you add states from redux if you wanna use them in this component. Here I'm using the cards reducer. The state.cards doesn't refer to state
+// from this component, but the reducer state!! now you can use cards as a prop as in line 29
+let mapStateToProps = (state) => { return { cards:state.cards }; };
+// matchDispatchToProps is where you add action functions. in this case, we have addCard. It can be used as a prop like in our save() function
+let matchDispatchToProps = (dispatch) => { return bindActionCreators({ addCard }, dispatch); }
+export default connect(mapStateToProps, matchDispatchToProps)(CreateCardScreen);
 
 let qCardStyle = {
     backgroundColor: "#fff",
