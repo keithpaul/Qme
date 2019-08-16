@@ -1,12 +1,18 @@
 import React from 'react';
 import { Text, View, TextInput, TouchableHighlight } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addCard } from '../../actions/addCard';
 
-export default class CreateCardScreen extends React.Component {
+class CreateCardScreen extends React.Component {
     static navigationOptions = {header: null}
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = { question:"", answer: ""};
+        const { dispatch } = this.props;
+        this.boundActionCreators = bindActionCreators(addCard, dispatch);
+        
     }
 
     changeQuestion = (val)=> {
@@ -17,7 +23,10 @@ export default class CreateCardScreen extends React.Component {
     }
 
     save = () => {
-        console.log(this.state)
+        let { dispatch } = this.props;
+        let action = addCard(this.state);
+        console.log(action);
+    dispatch(action)
     }
 	render() {
 		return (
@@ -39,6 +48,8 @@ export default class CreateCardScreen extends React.Component {
 		);
 	}
 }
+
+export default connect(state => ({ question: state.question, answer: state.answer }))(CreateCardScreen)
 
 let qCardStyle = {
     backgroundColor: "#fff",
